@@ -4,11 +4,11 @@ import { EyeOutlined } from "@ant-design/icons";
 import { IInput } from "@/types/general";
 
 const InputVariants = cva(
-  `px-3 py-2 rounded-xl transition-all hover:ring-2 ring-indigo-300 hover:text-white`,
+  `px-3 py-2 rounded-xl transition-all hover:ring-2 ring-indigo-300`,
   {
     variants: {
       variant: {
-        outlined: "border-gray-300 border-4",
+        outlined: "border-gray-300 border-4 text-black",
       },
       size: {
         sm: "py-2 px-2",
@@ -44,22 +44,25 @@ export const CustomInput = ({
   isPassword,
   variant,
   onBlur,
+  type,
   onChange,
+  value,
   ...props
 }: IInput) => {
   return (
     <div>
       <label htmlFor="">{LabelText}</label>
-      <div>
+      <div className="relative">
         {isPassword && (
-          <div>
+          <div className="absolute right-2 top-2">
             <EyeOutlined />
           </div>
         )}
         <input
-          type="button"
+          type={type}
           onBlur={onBlur}
           onChange={onChange}
+          value={value}
           className={cn(
             InputVariants({
               className,

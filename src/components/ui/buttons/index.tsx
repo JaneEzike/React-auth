@@ -4,7 +4,7 @@ import Loader from "@/components/loader";
 interface IButton {
   size: any;
   variant: any;
-  className: string;
+  className?: string;
   loadingText: string;
   text: string;
   disabled: boolean;
@@ -71,7 +71,7 @@ const Button = ({
 }: IButton) => {
   return (
     <button
-      type="button"
+      type="submit"
       className={cn(
         buttonVariants({
           className,

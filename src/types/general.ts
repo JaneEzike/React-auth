@@ -7,4 +7,6 @@ export interface IInput {
   variant: any;
   onBlur: any;
   onChange: any;
+  value: any;
+  type: "number" | "text" | "password" | "email";
 }
