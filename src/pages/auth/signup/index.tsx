@@ -1,12 +1,25 @@
 import Button from "@/components/ui/buttons";
 import { CustomInput } from "@/components/ui/inputs/customInput";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
+import { SignData } from "@/services/api/authApi";
+import { useMutation } from "@tanstack/react-query";
+
 interface FormData {
   fname: string;
   password: string;
   email: string;
 }
 const SignUp = () => {
+  const SignUpMutation = useMutation(SignData);
+
+  const handleSignUp = async (userData) => {
+    try {
+      const data = await signUpMutation.mutateAsync(userData);
+      // Handle successful signup response (if needed)
+    } catch (error) {
+      // Handle signup error
+    }
+  };
   const {
     control,
     handleSubmit,
